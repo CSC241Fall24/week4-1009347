@@ -7,38 +7,36 @@ public class Problem2 {
 
         ListNode newNode = new ListNode(val);
 
-
         if (position == 1 || head == null) {
             newNode.next = head;
             return newNode;
         }
 
+        
         ListNode current = head;
         int currentPosition = 1;
 
-
+        
         while (current != null && currentPosition < position - 1) {
             current = current.next;
             currentPosition++;
         }
 
         if (current == null) {
- 
             current = head;
             while (current.next != null) {
                 current = current.next;
             }
             current.next = newNode;
         } else {
-  
             newNode.next = current.next;
             current.next = newNode;
         }
 
-        return head;  // Return the updated head of the list
+        return head; 
+        
+        //return null;
     }
-
-
     public static void printList(ListNode head) {
         ListNode current = head;
         while (current != null) {
@@ -48,7 +46,6 @@ public class Problem2 {
         System.out.println("null");
     }
 
-    // Main method for testing the insert function
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
@@ -57,12 +54,11 @@ public class Problem2 {
         System.out.print("Original list: ");
         printList(head);
 
-
-        head = insert(head, 4, 2);  
+        head = insert(head, 4, 2);
 
         System.out.print("Updated list: ");
         printList(head);
-        //return null;
     }
+    
 }
 
